@@ -1,0 +1,62 @@
+# ============================================
+# Commit & Secure - .gitignore
+# ============================================
+# This file tells Git which files to IGNORE
+# and never track. This is critical for security!
+# ============================================
+
+# ------------------------------------------
+# 🔐 Secrets & Credentials (NEVER commit these!)
+# ------------------------------------------
+.env
+.env.local
+.env.production
+.env.*.local
+*.key
+*.pem
+*.p12
+*.pfx
+*.crt
+secrets/
+credentials/
+
+# ------------------------------------------
+# 🖥️ Operating System Files
+# ------------------------------------------
+.DS_Store
+Thumbs.db
+Desktop.ini
+*.swp
+*.swo
+*~
+
+# ------------------------------------------
+# 📦 Dependencies
+# ------------------------------------------
+node_modules/
+vendor/
+__pycache__/
+*.pyc
+*.pyo
+
+# ------------------------------------------
+# 🔧 IDE / Editor Files
+# ------------------------------------------
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# ------------------------------------------
+# 📝 Logs
+# ------------------------------------------
+*.log
+npm-debug.log*
+
+# ------------------------------------------
+# 🏗️ Build Output
+# ------------------------------------------
+dist/
+build/
+*.min.js
+*.min.css

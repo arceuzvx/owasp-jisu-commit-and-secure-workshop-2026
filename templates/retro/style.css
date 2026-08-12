@@ -1,0 +1,199 @@
+:root {
+    --bg-color: #008080; /* Classic Win95 Teal */
+    --window-bg: #c0c0c0;
+    --text-color: #000000;
+    --title-bg: #000080;
+    --title-text: #ffffff;
+    --border-light: #ffffff;
+    --border-dark: #808080;
+    --border-darker: #000000;
+    --font-retro: 'VT323', monospace;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--bg-color);
+    font-family: var(--font-retro);
+    font-size: 20px;
+    height: 100vh;
+    overflow: hidden;
+    position: relative;
+    cursor: crosshair;
+}
+
+/* CRT Overlay Effect */
+.crt-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.1) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.03), rgba(0, 255, 0, 0.01), rgba(0, 0, 255, 0.03));
+    background-size: 100% 3px, 3px 100%;
+    pointer-events: none;
+    z-index: 100;
+}
+
+.desktop {
+    padding: 2rem;
+    height: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    align-content: flex-start;
+    overflow-y: auto;
+}
+
+/* Window Styling */
+.window {
+    background: var(--window-bg);
+    border-top: 2px solid var(--border-light);
+    border-left: 2px solid var(--border-light);
+    border-right: 2px solid var(--border-darker);
+    border-bottom: 2px solid var(--border-darker);
+    box-shadow: inset -1px -1px var(--border-dark), inset 1px 1px var(--window-bg);
+    padding: 3px;
+    width: 100%;
+    max-width: 500px;
+}
+
+.main-window { width: 100%; max-width: 800px; }
+
+.title-bar {
+    background: var(--title-bg);
+    color: var(--title-text);
+    padding: 3px 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 18px;
+}
+
+.title-bar-controls button {
+    width: 16px;
+    height: 14px;
+    background: var(--window-bg);
+    border-top: 1px solid var(--border-light);
+    border-left: 1px solid var(--border-light);
+    border-right: 1px solid var(--border-darker);
+    border-bottom: 1px solid var(--border-darker);
+    cursor: pointer;
+    margin-left: 2px;
+}
+
+.title-bar-controls button:active {
+    border-top: 1px solid var(--border-darker);
+    border-left: 1px solid var(--border-darker);
+    border-right: 1px solid var(--border-light);
+    border-bottom: 1px solid var(--border-light);
+}
+
+.window-body {
+    padding: 1rem;
+    color: var(--text-color);
+}
+
+/* Typography & Elements */
+h1 {
+    font-size: 28px;
+    margin-bottom: 5px;
+    text-transform: uppercase;
+}
+
+h2 {
+    font-size: 22px;
+    margin-bottom: 15px;
+    color: #404040;
+}
+
+p {
+    margin-bottom: 10px;
+    line-height: 1.2;
+}
+
+.blink {
+    animation: blinker 1.5s linear infinite;
+}
+
+@keyframes blinker {
+    50% { opacity: 0; }
+}
+
+.status-box {
+    margin-top: 15px;
+    background: #000;
+    color: #0f0;
+    padding: 10px;
+    border: 2px inset var(--border-dark);
+}
+
+.tree-view {
+    list-style-type: none;
+    background: #fff;
+    padding: 10px;
+    border: 2px inset var(--border-dark);
+}
+
+.tree-view li {
+    margin-bottom: 5px;
+}
+
+.achievement {
+    margin-top: 15px;
+    background: #ffff00;
+    color: #000;
+    padding: 5px 10px;
+    font-weight: bold;
+    border: 2px solid #000;
+    animation: pulse 2s infinite;
+}
+
+.star { color: #ff0000; }
+
+@keyframes pulse {
+    0% { background: #ffff00; }
+    50% { background: #ffaa00; }
+    100% { background: #ffff00; }
+}
+
+.links-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.retro-btn {
+    display: inline-block;
+    background: var(--window-bg);
+    color: var(--text-color);
+    text-decoration: none;
+    text-align: center;
+    padding: 8px 15px;
+    border-top: 2px solid var(--border-light);
+    border-left: 2px solid var(--border-light);
+    border-right: 2px solid var(--border-darker);
+    border-bottom: 2px solid var(--border-darker);
+}
+
+.retro-btn:active {
+    border-top: 2px solid var(--border-darker);
+    border-left: 2px solid var(--border-darker);
+    border-right: 2px solid var(--border-light);
+    border-bottom: 2px solid var(--border-light);
+    transform: translate(1px, 1px);
+}
+
+.desktop-footer {
+    position: fixed;
+    bottom: 5px;
+    right: 10px;
+    color: #ffffff;
+    text-shadow: 1px 1px 0 #000;
+    font-size: 16px;
+    z-index: 10;
+}

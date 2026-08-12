@@ -1,0 +1,9 @@
+<svg width="400" height="180" xmlns="http://www.w3.org/2000/svg">
+  <rect width="100%" height="100%" fill="#0a0a0a" rx="10" ry="10" stroke="#00ff41" stroke-width="2"/>
+  <text x="200" y="40" font-family="monospace" font-size="22" font-weight="bold" fill="#00ff41" text-anchor="middle" filter="drop-shadow(0 0 2px #00ff41)">[ Commit &amp; Secure ]</text>
+  <text x="200" y="65" font-family="monospace" font-size="14" fill="#00ff41" text-anchor="middle">OWASP Workshop</text>
+  <text x="200" y="100" font-family="monospace" font-size="18" fill="#ffffff" text-anchor="middle">&gt; {name}</text>
+  <text x="200" y="125" font-family="monospace" font-size="14" fill="#aaaaaa" text-anchor="middle">USER: {github}</text>
+  <text x="200" y="150" font-family="monospace" font-size="12" font-weight="bold" fill="#00ff41" text-anchor="middle">STATUS: GitHub Contributor</text>
+  <text x="200" y="165" font-family="monospace" font-size="10" fill="#008f11" text-anchor="middle">Git + GitHub Pages + Pull Request</text>
+</svg>

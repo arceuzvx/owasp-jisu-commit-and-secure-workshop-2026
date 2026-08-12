@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hacker Terminal</title>
+    <!-- Favicon -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💻</text></svg>">
+    <!-- Google Fonts: Fira Code -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="scanlines"></div>
+    <div class="container">
+        <header class="terminal-block">
+            <p class="prompt"><span class="user">guest@system</span>:<span class="dir">~</span>$ whoami</p>
+            <!-- CUSTOMIZE: Your Name Here -->
+            <h1 class="typing-text">Hello, I'm <span class="highlight">Alex Hacker</span></h1>
+            <!-- CUSTOMIZE: Your Title Here -->
+            <p class="subtitle">Cybersecurity Enthusiast | CTF Player | Builder</p>
+        </header>
+
+        <main>
+            <section class="terminal-block">
+                <p class="prompt"><span class="user">guest@system</span>:<span class="dir">~</span>$ cat about.txt</p>
+                <div class="output">
+                    <!-- CUSTOMIZE: Your Bio Here -->
+                    <p>I am a passionate computer science student eager to learn about secure coding, threat modeling, and ethical hacking. When I'm not studying, I'm participating in CTFs and learning how the internet works under the hood.</p>
+                </div>
+            </section>
+
+            <section class="terminal-block">
+                <p class="prompt"><span class="user">guest@system</span>:<span class="dir">~</span>$ ls skills/</p>
+                <div class="output skills-grid">
+                    <!-- CUSTOMIZE: Your Skills Here -->
+                    <span class="skill-tag">Python</span>
+                    <span class="skill-tag">Linux Command Line</span>
+                    <span class="skill-tag">Git & GitHub</span>
+                    <span class="skill-tag">Web Dev</span>
+                    <span class="skill-tag">Curiosity</span>
+                </div>
+            </section>
+
+            <section class="terminal-block">
+                <p class="prompt"><span class="user">guest@system</span>:<span class="dir">~</span>$ cat links.txt</p>
+                <ul class="output links-list">
+                    <!-- CUSTOMIZE: Your Links Here -->
+                    <li><a href="https://github.com/" target="_blank">[GitHub] github.com/alexhacker</a></li>
+                    <li><a href="https://linkedin.com/" target="_blank">[LinkedIn] linkedin.com/in/alexhacker</a></li>
+                </ul>
+            </section>
+        </main>
+
+        <footer>
+            <p class="prompt"><span class="user">guest@system</span>:<span class="dir">~</span>$ <span class="cursor"></span></p>
+            <div class="footer-credit">Built with Commit & Secure | OWASP Workshop</div>
+        </footer>
+    </div>
+</body>
+</html>

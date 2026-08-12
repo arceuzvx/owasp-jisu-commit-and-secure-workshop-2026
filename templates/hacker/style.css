@@ -1,0 +1,173 @@
+:root {
+    --bg-color: #0d1117;
+    --text-main: #00ff41;
+    --text-dim: #008f11;
+    --accent: #00ffff;
+    --user-color: #ff0055;
+    --dir-color: #0055ff;
+    --font-mono: 'Fira Code', monospace;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-main);
+    font-family: var(--font-mono);
+    line-height: 1.6;
+    min-height: 100vh;
+    overflow-x: hidden;
+    position: relative;
+}
+
+/* CRT Scanline effect */
+.scanlines {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: linear-gradient(
+        to bottom,
+        rgba(255,255,255,0),
+        rgba(255,255,255,0) 50%,
+        rgba(0,0,0,0.2) 50%,
+        rgba(0,0,0,0.2)
+    );
+    background-size: 100% 4px;
+    pointer-events: none;
+    z-index: 50;
+    opacity: 0.3;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 3rem 2rem;
+    position: relative;
+    z-index: 10;
+}
+
+.terminal-block {
+    margin-bottom: 2.5rem;
+}
+
+.prompt {
+    margin-bottom: 0.5rem;
+    color: var(--text-dim);
+}
+
+.user { color: var(--user-color); }
+.dir { color: var(--dir-color); font-weight: bold; }
+
+.output {
+    margin-left: 1rem;
+    border-left: 2px solid var(--text-dim);
+    padding-left: 1rem;
+    margin-top: 0.5rem;
+}
+
+.typing-text {
+    font-size: 2rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    overflow: hidden;
+    white-space: nowrap;
+    border-right: 3px solid var(--text-main);
+    animation: typing 3s steps(40, end), blink-caret .75s step-end infinite;
+    max-width: max-content;
+}
+
+.highlight {
+    color: var(--accent);
+}
+
+.subtitle {
+    font-size: 1.1rem;
+    color: var(--text-dim);
+}
+
+.skills-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    padding-top: 0.5rem;
+}
+
+.skill-tag {
+    background-color: rgba(0, 255, 65, 0.05);
+    border: 1px solid var(--text-main);
+    padding: 0.3rem 0.8rem;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+    text-shadow: 0 0 5px var(--text-main);
+}
+
+.skill-tag:hover {
+    background-color: var(--text-main);
+    color: var(--bg-color);
+    transform: translateY(-2px);
+    box-shadow: 0 0 15px var(--text-main);
+    text-shadow: none;
+}
+
+.links-list {
+    list-style-type: none;
+    padding-top: 0.5rem;
+}
+
+.links-list li {
+    margin-bottom: 0.5rem;
+}
+
+a {
+    color: var(--accent);
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+a:hover {
+    color: var(--bg-color);
+    background-color: var(--accent);
+    text-shadow: none;
+}
+
+.cursor {
+    display: inline-block;
+    width: 10px;
+    height: 1.2em;
+    background-color: var(--text-main);
+    vertical-align: middle;
+    animation: blink-caret 1s step-end infinite;
+}
+
+.footer-credit {
+    margin-top: 4rem;
+    text-align: center;
+    font-size: 0.8rem;
+    color: var(--text-dim);
+    opacity: 0.7;
+}
+
+@keyframes typing {
+    from { width: 0 }
+    to { width: 100% }
+}
+
+@keyframes blink-caret {
+    from, to { border-color: transparent; opacity: 0; }
+    50% { border-color: var(--text-main); opacity: 1; }
+}
+
+@media (max-width: 600px) {
+    .typing-text {
+        font-size: 1.5rem;
+        white-space: normal;
+        border-right: none;
+        animation: none;
+    }
+}

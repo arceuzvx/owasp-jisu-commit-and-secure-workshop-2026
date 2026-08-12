@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Commit & Secure Hall of Fame</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="background-elements">
+        <div class="glow glow-1"></div>
+        <div class="glow glow-2"></div>
+    </div>
+
+    <header class="header">
+        <div class="container">
+            <h1>Commit & Secure Hall of Fame</h1>
+            <p class="subtitle">OWASP Git & GitHub Workshop Contributors</p>
+        </div>
+    </header>
+
+    <section class="stats-section">
+        <div class="container stats-container">
+            <div class="stat-card">
+                <h3 class="stat-number" id="stat-contributors">0</h3>
+                <p class="stat-label">Total Contributors</p>
+            </div>
+            <div class="stat-card">
+                <h3 class="stat-number" id="stat-badges">0</h3>
+                <p class="stat-label">Badges Earned</p>
+            </div>
+            <div class="stat-card">
+                <h3 class="stat-number" id="stat-themes">4</h3>
+                <p class="stat-label">Themes Used</p>
+            </div>
+        </div>
+    </section>
+
+    <main class="main-content container">
+        <div class="controls">
+            <div class="search-bar">
+                <input type="text" id="search-input" placeholder="Search by name or username...">
+            </div>
+            <div class="theme-filters">
+                <button class="filter-btn active" data-theme="all">All</button>
+                <button class="filter-btn" data-theme="cream">Cream</button>
+                <button class="filter-btn" data-theme="hacker">Hacker</button>
+                <button class="filter-btn" data-theme="corporate">Corporate</button>
+                <button class="filter-btn" data-theme="retro">Retro</button>
+            </div>
+        </div>
+
+        <div class="grid" id="contributors-grid">
+            <!-- Cards will be dynamically inserted here -->
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>Built for the <a href="https://owasp.org" target="_blank">OWASP</a> Commit & Secure Workshop</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

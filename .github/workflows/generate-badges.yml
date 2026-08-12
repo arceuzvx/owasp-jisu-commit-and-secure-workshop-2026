@@ -1,0 +1,62 @@
+name: 'Generate Contributor Badges & Hall of Fame'
+
+# This workflow runs when a pull request modifying the contributors directory is merged.
+on:
+  pull_request:
+    types: [closed]
+    paths:
+      - 'contributors/**'
+
+jobs:
+  generate:
+    # Only run if the pull request was actually merged, not just closed
+    if: github.event.pull_request.merged == true
+    runs-on: ubuntu-latest
+    
+    # We need write permissions to push the generated badges and data.json back to the repository
+    permissions:
+      contents: write
+      
+    steps:
+      # Step 1: Checkout the main branch of the repository
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          
+      # Step 2: Set up Python environment to run our scripts
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+          
+      # Step 3: Ensure all contributor files are valid before generating anything
+      - name: Validate contributor files
+        run: python scripts/validate_contributor.py
+        
+      # Step 4: Generate SVG badges for new contributors
+      - name: Generate badges
+        run: python scripts/generate_badges.py
+        
+      # Step 5: Compile the Hall of Fame data.json
+      - name: Generate Hall of Fame data
+        run: python scripts/generate_hall_of_fame.py
+        
+      # Step 6: Check if there are any new or modified files to commit
+      - name: Check for changes
+        id: check_changes
+        run: |
+          # Add untracked files to the index so git diff can detect them
+          git add -N badges/generated/ hall-of-fame/
+          # If git diff is not quiet, it means there are changes
+          git diff --quiet || echo 'changes=true' >> $GITHUB_OUTPUT
+          
+      # Step 7: Commit and push changes if any were found
+      - name: Commit and push changes
+        if: steps.check_changes.outputs.changes == 'true'
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add badges/generated/ hall-of-fame/data.json
+          git commit -m "chore: update hall of fame and badges [skip ci]"
+          git push

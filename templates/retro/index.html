@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Retro OS Profile</title>
+    <!-- Favicon -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🕹️</text></svg>">
+    <!-- Google Fonts: VT323 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="crt-overlay"></div>
+    
+    <div class="desktop">
+        <!-- Main Window -->
+        <div class="window main-window">
+            <div class="title-bar">
+                <div class="title-bar-text">C:\USER\PROFILE.EXE</div>
+                <div class="title-bar-controls">
+                    <button aria-label="Minimize"></button>
+                    <button aria-label="Maximize"></button>
+                    <button aria-label="Close"></button>
+                </div>
+            </div>
+            <div class="window-body">
+                <!-- CUSTOMIZE: Your Name Here -->
+                <h1 class="blink">Welcome, User: Sam Arcade</h1>
+                <!-- CUSTOMIZE: Your Title Here -->
+                <h2>Level 1 Developer</h2>
+                
+                <div class="status-box">
+                    <p>STATUS: ONLINE</p>
+                    <p>SYSTEM: READY</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- About Window -->
+        <div class="window about-window">
+            <div class="title-bar">
+                <div class="title-bar-text">ABOUT_ME.TXT</div>
+                <div class="title-bar-controls">
+                    <button aria-label="Close"></button>
+                </div>
+            </div>
+            <div class="window-body">
+                <!-- CUSTOMIZE: Your Bio Here -->
+                <p>> I am an aspiring programmer exploring the vast cyberspace.</p>
+                <p>> Passionate about old-school games, new-school tech, and writing bug-free code (mostly).</p>
+                <p>> Ready to insert coin and start a new project.</p>
+            </div>
+        </div>
+
+        <!-- Skills Window -->
+        <div class="window skills-window">
+            <div class="title-bar">
+                <div class="title-bar-text">INVENTORY (SKILLS)</div>
+            </div>
+            <div class="window-body">
+                <ul class="tree-view">
+                    <!-- CUSTOMIZE: Your Skills Here -->
+                    <li>[x] HTML & CSS</li>
+                    <li>[x] JavaScript</li>
+                    <li>[x] Git Basics</li>
+                    <li>[ ] Advanced Algorithms</li>
+                    <li>[x] Caffeine Tolerance</li>
+                </ul>
+                <div class="achievement">
+                    <span class="star">★</span> ACHIEVEMENT UNLOCKED: GitHub Contributor!
+                </div>
+            </div>
+        </div>
+
+        <!-- Links Window -->
+        <div class="window links-window">
+            <div class="title-bar">
+                <div class="title-bar-text">NETWORK_CONNECTIONS</div>
+            </div>
+            <div class="window-body">
+                <div class="links-container">
+                    <!-- CUSTOMIZE: Your Links Here -->
+                    <a href="https://github.com/" target="_blank" class="retro-btn">CONNECT TO GITHUB</a>
+                    <a href="https://linkedin.com/" target="_blank" class="retro-btn">CONNECT TO LINKEDIN</a>
+                </div>
+            </div>
+        </div>
+        
+        <footer class="desktop-footer">
+            Built with Commit & Secure | OWASP Workshop
+        </footer>
+    </div>
+</body>
+</html>
