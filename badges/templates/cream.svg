@@ -1,13 +1,87 @@
-<svg width="400" height="180" xmlns="http://www.w3.org/2000/svg">
-  <rect width="100%" height="100%" fill="#FDFBF7" rx="15" ry="15" stroke="#C19A6B" stroke-width="4"/>
-  <rect x="10" y="10" width="380" height="160" fill="none" rx="8" ry="8" stroke="#D2B48C" stroke-width="2"/>
-  <text x="200" y="40" font-family="serif" font-size="24" font-weight="bold" fill="#5C4033" text-anchor="middle">Commit &amp; Secure</text>
-  <text x="200" y="65" font-family="serif" font-size="16" fill="#8B4513" text-anchor="middle">OWASP Workshop</text>
-  <text x="200" y="100" font-family="serif" font-size="20" font-weight="bold" fill="#3E2723" text-anchor="middle">{name}</text>
-  <text x="200" y="125" font-family="serif" font-size="14" fill="#5D4037" text-anchor="middle">@{github}</text>
-  <text x="200" y="150" font-family="sans-serif" font-size="12" font-weight="bold" fill="#C19A6B" text-anchor="middle">GitHub Contributor</text>
-  <text x="200" y="165" font-family="sans-serif" font-size="10" fill="#A0522D" text-anchor="middle">Git + GitHub Pages + Pull Request</text>
-  <!-- Lock icon -->
-  <path d="M 30 30 h 20 v 20 h -20 z" fill="#C19A6B"/>
-  <path d="M 35 30 v -10 a 5 5 0 0 1 10 0 v 10" fill="none" stroke="#C19A6B" stroke-width="3"/>
+<svg viewBox="0 0 620 660" xmlns="http://www.w3.org/2000/svg" font-family="Georgia, 'Times New Roman', serif">
+  <defs>
+    <radialGradient id="creamBg" cx="50%" cy="38%" r="75%">
+      <stop offset="0%" stop-color="#FFFBF3"/>
+      <stop offset="100%" stop-color="#F7E2C4"/>
+    </radialGradient>
+    <radialGradient id="creamGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#E9C078" stop-opacity="0.4"/>
+      <stop offset="100%" stop-color="#E9C078" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="creamShield" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#FFFCF6"/>
+      <stop offset="100%" stop-color="#F3D9A8"/>
+    </linearGradient>
+    <pattern id="creamDots" width="26" height="26" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="2" r="1.4" fill="#B08D46" opacity="0.16"/>
+    </pattern>
+    <path id="leaf" d="M0,0 C7,-4 14,-2 17,4 C14,7 7,7 0,0 Z"/>
+  </defs>
+
+  <!-- background -->
+  <rect x="14" y="14" width="592" height="632" rx="26" fill="url(#creamBg)" stroke="#B8925A" stroke-width="2"/>
+  <rect x="14" y="14" width="592" height="632" rx="26" fill="url(#creamDots)"/>
+  <rect x="27" y="27" width="566" height="606" rx="16" fill="none" stroke="#D9B679" stroke-width="1"/>
+
+  <!-- ornamental corner fleurons -->
+  <g fill="#B08D46">
+    <path d="M27,27 q22,0 22,22 q-10,-14 -22,-14 q0,12 -14,22 q0,-22 14,-30 z" opacity="0.7"/>
+    <path d="M593,27 q-22,0 -22,22 q10,-14 22,-14 q0,12 14,22 q0,-22 -14,-30 z" opacity="0.7"/>
+    <path d="M27,633 q22,0 22,-22 q-10,14 -22,14 q0,-12 -14,-22 q0,22 14,30 z" opacity="0.7"/>
+    <path d="M593,633 q-22,0 -22,-22 q10,14 22,14 q0,-12 14,-22 q0,22 -14,30 z" opacity="0.7"/>
+  </g>
+
+  <!-- glow -->
+  <circle cx="310" cy="165" r="160" fill="url(#creamGlow)"/>
+
+  <!-- laurel wreath -->
+  <g fill="#C79A52" transform="translate(0,-28)">
+    <use href="#leaf" transform="translate(212,242) rotate(-95) scale(0.85)"/>
+    <use href="#leaf" transform="translate(200,215) rotate(-70)"/>
+    <use href="#leaf" transform="translate(193,183) rotate(-45)"/>
+    <use href="#leaf" transform="translate(195,150) rotate(-20)"/>
+    <use href="#leaf" transform="translate(205,120) rotate(5)"/>
+    <use href="#leaf" transform="translate(220,96) rotate(30)"/>
+
+    <use href="#leaf" transform="translate(408,242) rotate(275) scale(0.85) scale(1,-1)"/>
+    <use href="#leaf" transform="translate(420,215) rotate(250) scale(1,-1)"/>
+    <use href="#leaf" transform="translate(427,183) rotate(225) scale(1,-1)"/>
+    <use href="#leaf" transform="translate(425,150) rotate(200) scale(1,-1)"/>
+    <use href="#leaf" transform="translate(415,120) rotate(175) scale(1,-1)"/>
+    <use href="#leaf" transform="translate(400,96) rotate(150) scale(1,-1)"/>
+  </g>
+
+  <!-- shield -->
+  <path d="M310,55 L385,85 L385,164 C385,206 350,234 310,252 C270,234 235,206 235,164 L235,85 Z"
+        fill="url(#creamShield)" stroke="#9A7638" stroke-width="4"/>
+  <path d="M310,63 L378,90 L378,163 C378,201 346,227 310,244 C274,227 242,201 242,163 L242,90 Z"
+        fill="none" stroke="#C79A52" stroke-width="1.3"/>
+  <path d="M269,169 L294,192 L348,138" fill="none" stroke="#9A7638" stroke-width="9"
+        stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- event title block -->
+  <text x="310" y="292" text-anchor="middle" font-size="27" letter-spacing="2" fill="#3B2A1C" font-weight="bold">COMMIT &amp; SECURE</text>
+  <text x="310" y="317" text-anchor="middle" font-size="15" fill="#8A6A3E">Git &amp; GitHub Basics</text>
+  <text x="310" y="337" text-anchor="middle" font-size="12" fill="#B08D46" font-style="italic">By OWASP JIS University, 2026</text>
+
+  <line x1="180" y1="358" x2="440" y2="358" stroke="#D9C295" stroke-width="1"/>
+  <path d="M310,352 l6,6 -6,6 -6,-6 z" fill="#B08D46"/>
+
+  <!-- name -->
+  <text x="310" y="404" text-anchor="middle" font-size="33" fill="#2E2013" font-weight="bold"
+        textLength="420" lengthAdjust="spacingAndGlyphs">{name}</text>
+  <!-- github handle -->
+  <text x="310" y="431" text-anchor="middle" font-size="16" fill="#A67C46" font-family="'Courier New', monospace"
+        textLength="280" lengthAdjust="spacingAndGlyphs">@{github}</text>
+
+  <!-- role pill -->
+  <rect x="198" y="452" width="224" height="32" rx="16" fill="#FFF8EA" stroke="#B08D46" stroke-width="1.3"/>
+  <text x="310" y="473" text-anchor="middle" font-size="13" letter-spacing="1" fill="#6B5230">GitHub Contributor</text>
+
+  <!-- supporting line -->
+  <text x="310" y="512" text-anchor="middle" font-size="13" fill="#A67C46" font-family="'Courier New', monospace">Git + GitHub Pages + PR Completed</text>
+
+  <!-- ribbon tails -->
+  <path d="M280,522 L280,566 L310,548 Z" fill="#C79A52"/>
+  <path d="M340,522 L340,566 L310,548 Z" fill="#B08D46"/>
 </svg>
