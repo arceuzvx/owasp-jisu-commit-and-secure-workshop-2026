@@ -9,11 +9,24 @@ and generates a badge using their chosen theme template.
 import os
 import json
 import glob
+import re
 from pathlib import Path
+
+def clean_github_username(raw: str) -> str:
+    """Extract clean username even if participant enters URL or @ prefix."""
+    if not isinstance(raw, str):
+        return "unknown"
+    u = raw.strip()
+    for prefix in ["https://github.com/", "http://github.com/", "https://www.github.com/", "http://www.github.com/", "github.com/"]:
+        if u.lower().startswith(prefix):
+            u = u[len(prefix):]
+    u = u.lstrip("@").rstrip("/").strip()
+    # Replace any leftover characters that are unsafe for filenames
+    u = re.sub(r'[^\w.-]', '_', u)
+    return u or "unknown"
 
 def main():
     # Define paths using pathlib for cross-platform compatibility
-    # Assuming script is run from the workspace root or scripts/ directory
     base_dir = Path(__file__).resolve().parent.parent
     contributors_dir = base_dir / 'contributors'
     templates_dir = base_dir / 'badges' / 'templates'
@@ -30,7 +43,6 @@ def main():
     error_count = 0
 
     # 1. Read all JSON files from contributors/ directory
-    # glob helps us find all matching files
     json_pattern = str(contributors_dir / '*.json')
     json_files = glob.glob(json_pattern)
 
@@ -47,10 +59,10 @@ def main():
                 data = json.load(f)
             
             # Extract required fields
-            # Using .get() provides a safe way to access keys without KeyError
-            name = data.get('name', 'Unknown')
-            github = data.get('github', 'unknown')
-            theme = data.get('theme', 'corporate').lower()
+            name = str(data.get('name', 'Unknown')).strip()
+            raw_github = str(data.get('github', 'unknown')).strip()
+            github = clean_github_username(raw_github)
+            theme = str(data.get('theme', 'corporate')).strip().lower()
             completed = data.get('completed', False)
 
             # 2. Check if the contributor has completed the workshop
@@ -103,6 +115,6 @@ def main():
     print(f"Errors encountered: {error_count}")
     print("--------------------------------")
 
-# 7. Include a main guard
+# Include a main guard
 if __name__ == '__main__':
     main()

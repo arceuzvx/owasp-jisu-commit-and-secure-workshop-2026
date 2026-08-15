@@ -10,10 +10,22 @@ import json
 import glob
 import sys
 import io
+import re
 from pathlib import Path
 
 # Ensure UTF-8 output on all platforms (including Windows)
 sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8', errors='replace')
+
+def clean_github_username(raw: str) -> str:
+    """Extract clean username even if participant enters URL or @ prefix."""
+    if not isinstance(raw, str):
+        return ""
+    u = raw.strip()
+    for prefix in ["https://github.com/", "http://github.com/", "https://www.github.com/", "http://www.github.com/", "github.com/"]:
+        if u.lower().startswith(prefix):
+            u = u[len(prefix):]
+    u = u.lstrip("@").rstrip("/").strip()
+    return u
 
 def validate_file(file_path: Path) -> bool:
     """Validates a single contributor JSON file."""
@@ -30,27 +42,30 @@ def validate_file(file_path: Path) -> bool:
                 print(f"   Missing required field: {field}")
                 return False
                 
-        # Validate name and github
+        # Validate name
         if not isinstance(data["name"], str) or not data["name"].strip():
             print(f"[FAIL] Invalid contributor file: {file_path.name}")
             print(f"   Field 'name' must be a non-empty string.")
             return False
             
-        if not isinstance(data["github"], str) or not data["github"].strip():
+        # Validate github
+        cleaned_github = clean_github_username(data["github"])
+        if not cleaned_github:
             print(f"[FAIL] Invalid contributor file: {file_path.name}")
-            print(f"   Field 'github' must be a non-empty string.")
+            print(f"   Field 'github' must contain a valid username or GitHub profile link.")
             return False
             
         # Validate website
-        website = data["website"]
-        if not isinstance(website, str) or not (website.startswith("http://") or website.startswith("https://")):
+        website = str(data["website"]).strip()
+        if not (website.startswith("http://") or website.startswith("https://")):
             print(f"[FAIL] Invalid contributor file: {file_path.name}")
             print(f"   Field 'website' must start with 'http://' or 'https://'.")
             return False
             
-        # Validate theme
+        # Validate theme (case-insensitive and trimmed)
         valid_themes = ["cream", "hacker", "corporate", "retro"]
-        if data["theme"] not in valid_themes:
+        theme = str(data["theme"]).strip().lower()
+        if theme not in valid_themes:
             print(f"[FAIL] Invalid contributor file: {file_path.name}")
             print(f"   Field 'theme' must be one of: {', '.join(valid_themes)}")
             return False
@@ -58,7 +73,7 @@ def validate_file(file_path: Path) -> bool:
         # Validate completed
         if not isinstance(data["completed"], bool):
             print(f"[FAIL] Invalid contributor file: {file_path.name}")
-            print(f"   Field 'completed' must be a boolean.")
+            print(f"   Field 'completed' must be a boolean (true or false).")
             return False
             
         return True

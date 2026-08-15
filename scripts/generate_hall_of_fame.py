@@ -8,12 +8,23 @@ the data.json file for the static Hall of Fame page.
 
 import json
 import glob
+import re
 from pathlib import Path
 import sys
 
+def clean_github_username(raw: str) -> str:
+    """Extract clean username even if participant enters URL or @ prefix."""
+    if not isinstance(raw, str):
+        return "unknown"
+    u = raw.strip()
+    for prefix in ["https://github.com/", "http://github.com/", "https://www.github.com/", "http://www.github.com/", "github.com/"]:
+        if u.lower().startswith(prefix):
+            u = u[len(prefix):]
+    u = u.lstrip("@").rstrip("/").strip()
+    u = re.sub(r'[^\w.-]', '_', u)
+    return u or "unknown"
+
 def main():
-    # Define paths
-    # We assume the script is run from the root of the repository
     repo_root = Path(__file__).resolve().parent.parent
     contributors_dir = repo_root / "contributors"
     hall_of_fame_dir = repo_root / "hall-of-fame"
@@ -40,11 +51,21 @@ def main():
                 
             # Check if the contributor has completed the workshop
             if data.get("completed") is True:
-                # Add the badge field
-                github_username = data.get("github")
-                if github_username:
-                    data["badge"] = f"../badges/generated/{github_username}.svg"
-                    hall_of_fame_data.append(data)
+                github_username = clean_github_username(data.get("github"))
+                theme = str(data.get("theme", "corporate")).strip().lower()
+                name = str(data.get("name", "Unknown")).strip()
+                website = str(data.get("website", "")).strip()
+
+                if github_username and github_username != "unknown":
+                    entry = {
+                        "name": name,
+                        "github": github_username,
+                        "website": website,
+                        "theme": theme,
+                        "completed": True,
+                        "badge": f"../badges/generated/{github_username}.svg"
+                    }
+                    hall_of_fame_data.append(entry)
                 
         except Exception as e:
             print(f"Error reading {file_path.name}: {e}", file=sys.stderr)
