@@ -41,11 +41,15 @@ When you use this template, you can customize your website with one of four them
 - 🕹️ **Retro**: Nostalgic 8-bit, pixelated design.
 
 ## 🚀 Quick Start
-Ready to build your site? 
-1. Click the **"Use this template"** button at the top of this repository to create your own copy.
-2. Clone your new repository to your local machine.
-3. Customize the HTML/CSS with your chosen theme.
-4. Deploy to GitHub Pages! 
+Ready to build your site?
+
+1. **Fork** this repository (click the Fork button at the top right)
+2. **Clone** your fork to your computer
+3. **Create a branch** for your website: `git switch -c my-website`
+4. **Choose a theme** from `templates/` and customize it
+5. **Push** your branch: `git push origin my-website`
+6. **Deploy** via GitHub Pages (Settings → Pages → deploy the `my-website` branch)
+7. **Contribute back** — switch to `main`, create an `add-my-profile` branch, add your contributor JSON, and open a PR
 
 See the full [WORKSHOP.md](WORKSHOP.md) guide for detailed step-by-step instructions.
 
@@ -61,11 +65,13 @@ Here are the essential commands you'll use:
 - **PRs**: Propose your changes to the main project!
 
 ## 🌐 GitHub Pages Deployment
-1. Go to your repository **Settings**.
+1. Go to your fork's **Settings**.
 2. Navigate to **Pages** in the left sidebar.
 3. Under **Build and deployment**, select **Deploy from a branch**.
-4. Choose `main` (or your default branch) and `/root`, then save.
+4. Choose the **`my-website`** branch and **/ (root)**, then save.
 5. In a few minutes, your site will be live!
+
+> ⚠️ **Important:** Deploy the `my-website` branch, NOT `main`. Your `main` branch stays clean so your Pull Request only contains your contributor file.
 
 ## 🤝 How to Contribute
 Want to add your name to our Hall of Fame and earn a badge? Read our [Contribution Guide](CONTRIBUTING.md) to learn how to open a Pull Request.
