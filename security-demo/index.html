@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Security Demo — Commit &amp; Secure</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🔐</text></svg>">
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="hero">
+    <h1>🔐 Security Demo</h1>
+    <p class="hero-sub">Commit &amp; Secure — OWASP Workshop</p>
+  </header>
+
+  <!-- Tab Navigation -->
+  <nav class="tabs">
+    <button class="tab active" data-tab="lab1">Lab 1: The Leak (A02)</button>
+    <button class="tab" data-tab="lab2">Lab 2: Fix the Config (A05)</button>
+  </nav>
+
+  <!-- ============================== -->
+  <!-- LAB 1: The Leak                -->
+  <!-- ============================== -->
+  <section id="lab1" class="lab active">
+    <div class="lab-intro">
+      <h2>OWASP A02:2021 — Cryptographic Failures</h2>
+      <p>Explore a project's files. Can you spot the exposed secrets?</p>
+    </div>
+
+    <!-- Alert Banner -->
+    <div id="alert-banner" class="alert-banner hidden">
+      <span id="alert-icon">⚠️</span>
+      <span id="alert-text"></span>
+    </div>
+
+    <!-- Secure Toggle -->
+    <div class="toggle-row">
+      <label class="toggle-label">
+        <span class="toggle-text">Show Secure Version</span>
+        <input type="checkbox" id="secure-toggle">
+        <span class="toggle-switch"></span>
+      </label>
+    </div>
+
+    <!-- Split Panel -->
+    <div class="split-panel">
+      <!-- File Tree -->
+      <aside class="file-tree" id="file-tree">
+        <div class="file-tree-header">📁 project/</div>
+        <!-- Files populated by JS -->
+      </aside>
+
+      <!-- Code Viewer -->
+      <main class="code-viewer">
+        <div class="code-header" id="code-header">
+          <span id="code-filename">Select a file to view</span>
+        </div>
+        <pre class="code-content" id="code-content"><code>// Click a file on the left to view its contents</code></pre>
+      </main>
+    </div>
+
+    <!-- Attack Timeline -->
+    <div class="timeline-section" id="timeline-section">
+      <h3 class="timeline-title">⏱️ What Happens After You Push Secrets to GitHub</h3>
+      <div class="timeline">
+        <div class="timeline-step" data-step="1">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <strong>0:00</strong> — You push your code to GitHub
+          </div>
+        </div>
+        <div class="timeline-step" data-step="2">
+          <div class="timeline-dot dot-yellow"></div>
+          <div class="timeline-content">
+            <strong>0:03</strong> — Automated bots scan every new public push
+          </div>
+        </div>
+        <div class="timeline-step" data-step="3">
+          <div class="timeline-dot dot-orange"></div>
+          <div class="timeline-content">
+            <strong>0:07</strong> — Your API key is harvested and cataloged
+          </div>
+        </div>
+        <div class="timeline-step" data-step="4">
+          <div class="timeline-dot dot-red"></div>
+          <div class="timeline-content">
+            <strong>0:15</strong> — Unauthorized API calls begin on your account
+          </div>
+        </div>
+        <div class="timeline-step" data-step="5">
+          <div class="timeline-dot dot-red"></div>
+          <div class="timeline-content">
+            <strong>1:00</strong> — You receive a $2,847 bill from your cloud provider
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================== -->
+  <!-- LAB 2: Fix the Config          -->
+  <!-- ============================== -->
+  <section id="lab2" class="lab">
+    <div class="lab-intro">
+      <h2>OWASP A05:2021 — Security Misconfiguration</h2>
+      <p>This deployment has 6 security issues. Fix them all to reach 100%.</p>
+    </div>
+
+    <!-- Score Display -->
+    <div class="score-section">
+      <div class="score-bar-wrapper">
+        <div class="score-bar" id="score-bar" style="width: 0%"></div>
+      </div>
+      <div class="score-label">
+        Security Score: <span id="score-value" class="score-number">0</span> / 100
+      </div>
+    </div>
+
+    <!-- Celebration -->
+    <div id="celebration" class="celebration hidden">
+      <div class="celebration-content">
+        <span class="shield-icon">🛡️</span>
+        <h3>Deployment Secured!</h3>
+        <p>All misconfigurations fixed.</p>
+      </div>
+    </div>
+
+    <!-- Config Cards Grid -->
+    <div class="config-grid" id="config-grid">
+      <!-- Cards populated by JS -->
+    </div>
+  </section>
+
+  <footer class="footer">
+    <p>Part of the <a href="../">Commit &amp; Secure</a> OWASP Workshop &bull;
+       <a href="LIVE_WORKSHOP_GUIDE.md">Facilitator Guide</a></p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
