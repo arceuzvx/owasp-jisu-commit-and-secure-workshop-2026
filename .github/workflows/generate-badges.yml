@@ -8,6 +8,8 @@ on:
     branches: [main]
     paths:
       - 'contributors/**'
+  # Allow manual trigger from the Actions tab (useful for re-runs)
+  workflow_dispatch:
 
 jobs:
   generate:
