@@ -1,16 +1,16 @@
 name: 'Generate Contributor Badges & Hall of Fame'
 
-# This workflow runs when a pull request modifying the contributors directory is merged.
+# This workflow runs when changes to the contributors directory are pushed to main.
+# This happens automatically when a Pull Request is merged.
+# We use 'push' instead of 'pull_request' because fork PRs get read-only tokens.
 on:
-  pull_request:
-    types: [closed]
+  push:
+    branches: [main]
     paths:
       - 'contributors/**'
 
 jobs:
   generate:
-    # Only run if the pull request was actually merged, not just closed
-    if: github.event.pull_request.merged == true
     runs-on: ubuntu-latest
     
     # We need write permissions to push the generated badges and data.json back to the repository
