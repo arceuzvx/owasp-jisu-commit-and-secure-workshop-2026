@@ -1,5 +1,13 @@
 [
   {
+    "name": "Ankit Dey",
+    "github": "https://github.com/nonsense3",
+    "website": "https://nonsense3.github.io/owasp-jisu-commit-and-secure-workshop-2026/",
+    "theme": "corporate",
+    "completed": true,
+    "badge": "../badges/generated/https://github.com/nonsense3.svg"
+  },
+  {
     "name": "Tom Riddle",
     "github": "TomRiddle1943",
     "website": "https://tomriddle1943.github.io/owasp-jisu-commit-and-secure-workshop-2026/",
