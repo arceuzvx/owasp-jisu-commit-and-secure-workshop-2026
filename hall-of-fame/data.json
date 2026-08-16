@@ -8,12 +8,12 @@
     "badge": "../badges/generated/nonsense3.svg"
   },
   {
-    "name": "Rashmi Pyne",
-    "github": "rashmi-crypto",
-    "website": "https://rashmi-crypto.github.io/owasp-jisu-commit-and-secure-workshop-2026",
-    "theme": "cream",
+    "name": "Divyanshu Jha",
+    "github": "divyanshuj91",
+    "website": "https://divyanshuj91.github.io/owasp-jisu-commit-and-secure-workshop-2026/",
+    "theme": "retro",
     "completed": true,
-    "badge": "../badges/generated/rashmi-crypto.svg"
+    "badge": "../badges/generated/divyanshuj91.svg"
   },
   {
     "name": "Tom Riddle",
@@ -22,5 +22,13 @@
     "theme": "retro",
     "completed": true,
     "badge": "../badges/generated/TomRiddle1943.svg"
+  },
+  {
+    "name": "Rashmi Pyne",
+    "github": "rashmi-crypto",
+    "website": "https://rashmi-crypto.github.io/owasp-jisu-commit-and-secure-workshop-2026",
+    "theme": "cream",
+    "completed": true,
+    "badge": "../badges/generated/rashmi-crypto.svg"
   }
 ]
