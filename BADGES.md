@@ -29,30 +29,49 @@ You can choose a theme that matches your personality by setting the `"theme"` fi
 
 Once your PR is merged, you can add your badge to your personal GitHub Profile README or your repository README!
 
-### 1. Markdown (Recommended)
+### 1. Standard Markdown (Full Width)
 Copy and paste this markdown snippet into your `README.md` (replace `<YOUR_GITHUB_USERNAME>` with your username):
 
 ```markdown
 [![Commit & Secure Badge](https://raw.githubusercontent.com/arceuzvx/owasp-jisu-commit-and-secure-workshop-2026/main/badges/generated/<YOUR_GITHUB_USERNAME>.svg)](https://github.com/arceuzvx/owasp-jisu-commit-and-secure-workshop-2026)
 ```
 
-### 2. Centered HTML (for Profile READMEs)
-If you want the badge centered on your profile:
+---
+
+### 2. Custom Sizing / Smaller Badge (Recommended)
+If the default badge is too large, you can control the exact width using HTML (e.g. `250px`, `300px`, `350px`):
+
+```html
+<a href="https://github.com/arceuzvx/owasp-jisu-commit-and-secure-workshop-2026">
+  <img src="https://raw.githubusercontent.com/arceuzvx/owasp-jisu-commit-and-secure-workshop-2026/main/badges/generated/<YOUR_GITHUB_USERNAME>.svg" width="280" alt="Commit & Secure Contributor Badge" />
+</a>
+```
+
+---
+
+### 3. Centered with Custom Size (For Profile READMEs)
+To center the badge with a clean compact size on your profile:
 
 ```html
 <p align="center">
   <a href="https://github.com/arceuzvx/owasp-jisu-commit-and-secure-workshop-2026">
-    <img src="https://raw.githubusercontent.com/arceuzvx/owasp-jisu-commit-and-secure-workshop-2026/main/badges/generated/<YOUR_GITHUB_USERNAME>.svg" alt="Commit & Secure Contributor Badge" />
+    <img src="https://raw.githubusercontent.com/arceuzvx/owasp-jisu-commit-and-secure-workshop-2026/main/badges/generated/<YOUR_GITHUB_USERNAME>.svg" width="280" alt="Commit & Secure Contributor Badge" />
   </a>
 </p>
 ```
 
+---
+
 ### 🌟 Live Examples:
-- **Tom Riddle:**
-  ```markdown
-  [![Commit & Secure Badge](https://raw.githubusercontent.com/arceuzvx/owasp-jisu-commit-and-secure-workshop-2026/main/badges/generated/TomRiddle1943.svg)](https://github.com/arceuzvx/owasp-jisu-commit-and-secure-workshop-2026)
-  ```
 - **Ankit Dey (nonsense3):**
-  ```markdown
-  [![Commit & Secure Badge](https://raw.githubusercontent.com/arceuzvx/owasp-jisu-commit-and-secure-workshop-2026/main/badges/generated/nonsense3.svg)](https://github.com/arceuzvx/owasp-jisu-commit-and-secure-workshop-2026)
+  ```html
+  <a href="https://github.com/arceuzvx/owasp-jisu-commit-and-secure-workshop-2026">
+    <img src="https://raw.githubusercontent.com/arceuzvx/owasp-jisu-commit-and-secure-workshop-2026/main/badges/generated/nonsense3.svg" width="280" alt="nonsense3's Badge" />
+  </a>
+  ```
+- **Tom Riddle (TomRiddle1943):**
+  ```html
+  <a href="https://github.com/arceuzvx/owasp-jisu-commit-and-secure-workshop-2026">
+    <img src="https://raw.githubusercontent.com/arceuzvx/owasp-jisu-commit-and-secure-workshop-2026/main/badges/generated/TomRiddle1943.svg" width="280" alt="TomRiddle1943's Badge" />
+  </a>
   ```
