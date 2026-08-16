@@ -69,9 +69,9 @@ Create a new file called `.env`:
 DB_HOST=db.example.com
 DB_PORT=5432
 DB_USER=admin
-DB_PASSWORD=SuperSecret_DB_Pass!2024
-STRIPE_API_KEY=sk_live_a1b2c3d4e5f6g7h8i9j0
-JWT_SECRET=my-ultra-secret-jwt-key-never-share
+DB_PASSWORD=example-db-password
+STRIPE_API_KEY=example_stripe_key_live
+JWT_SECRET=example-jwt-secret
 ```
 
 > 🗣️ *"We move the secrets into a separate `.env` file. But this alone doesn't protect us — we need to tell Git to ignore it."*
@@ -108,7 +108,7 @@ Toggle the "Show Secure Version" switch in the browser demo, or open the files a
 
 ```javascript
 // ❌ BEFORE (hardcoded)
-const API_KEY = 'sk_live_a1b2c3d4e5f6g7h8i9j0';
+const API_KEY = 'example_stripe_key_live';
 
 // ✅ AFTER (environment variable)
 const API_KEY = process.env.STRIPE_API_KEY;
@@ -183,7 +183,7 @@ Walk through each card and have students call out which ones to fix:
 | 1 | Debug mode ON | Always disable debug in production |
 | 2 | `.env` committed | Use `.gitignore` before first commit |
 | 3 | `.gitignore` incomplete | Cover `*.key`, `*.pem`, `secrets/` |
-| 4 | Default credentials | Never ship with `admin/admin123` |
+| 4 | Default credentials | Never ship with a default admin password |
 | 5 | Verbose errors | Don't leak stack traces to users |
 | 6 | API keys in frontend | Backend proxy, never expose in client JS |
 
