@@ -1,5 +1,13 @@
 [
   {
+    "name": "Souvik Das",
+    "github": "dasouvik122005",
+    "website": "https://souvikdasportfolio.vercel.app/",
+    "theme": "corporate",
+    "completed": true,
+    "badge": "../badges/generated/dasouvik122005.svg"
+  },
+  {
     "name": "Ankit Dey",
     "github": "nonsense3",
     "website": "https://nonsense3.github.io/owasp-jisu-commit-and-secure-workshop-2026/",
