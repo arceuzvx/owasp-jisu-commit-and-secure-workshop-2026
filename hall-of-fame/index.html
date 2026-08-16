@@ -3,62 +3,176 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Commit & Secure Hall of Fame</title>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <title>🏆 Hall of Fame | Commit & Secure — OWASP Workshop</title>
+    <!-- Favicon -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🏆</text></svg>">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700;800&family=Outfit:wght@300;400;500;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="background-elements">
-        <div class="glow glow-1"></div>
-        <div class="glow glow-2"></div>
+    <!-- Ambient Lighting Effects -->
+    <div class="ambient-canvas">
+        <div class="light-orb orb-gold"></div>
+        <div class="light-orb orb-purple"></div>
+        <div class="light-orb orb-cyan"></div>
+        <div class="grid-overlay"></div>
     </div>
 
-    <header class="header">
-        <div class="container">
-            <h1>Commit & Secure Hall of Fame</h1>
-            <p class="subtitle">OWASP Git & GitHub Workshop Contributors</p>
+    <!-- Top Navigation -->
+    <nav class="top-nav">
+        <div class="nav-wrapper">
+            <a href="../" class="nav-brand">
+                <span class="shield-emblem">🛡️</span>
+                <span class="nav-title">Commit & Secure</span>
+                <span class="nav-badge">OWASP JISU 2026</span>
+            </a>
+            <div class="nav-links">
+                <a href="../#quick-start" class="nav-link">Workshop Guide</a>
+                <a href="../security-demo/" class="nav-link">Security Labs</a>
+                <a href="https://github.com/arceuzvx/owasp-jisu-commit-and-secure-workshop-2026" target="_blank" rel="noopener noreferrer" class="btn-github">
+                    <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.1-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2z"/></svg>
+                    GitHub Repo
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero-section">
+        <div class="hero-content">
+            <div class="hall-badge-wrapper">
+                <div class="hall-badge">
+                    <span class="trophy-sparkle">✨</span>
+                    <span>OFFICIAL CONTRIBUTORS REGISTRY</span>
+                    <span class="trophy-sparkle">✨</span>
+                </div>
+            </div>
+            <h1 class="hero-title">
+                HALL OF <span class="gold-gradient">FAME</span>
+            </h1>
+            <p class="hero-subtitle">
+                Honoring the developers who mastered Git workflows, deployed their portfolios, and earned their verified badge in the <strong>OWASP Commit & Secure</strong> Workshop.
+            </p>
+        </div>
+
+        <!-- Live Workshop Metrics -->
+        <div class="stats-ribbon">
+            <div class="stat-pill">
+                <div class="stat-icon">🛡️</div>
+                <div class="stat-info">
+                    <span class="stat-value" id="stat-contributors">0</span>
+                    <span class="stat-name">Verified Contributors</span>
+                </div>
+            </div>
+            <div class="stat-divider"></div>
+            <div class="stat-pill">
+                <div class="stat-icon">🎖️</div>
+                <div class="stat-info">
+                    <span class="stat-value" id="stat-badges">0</span>
+                    <span class="stat-name">Badges Minted</span>
+                </div>
+            </div>
+            <div class="stat-divider"></div>
+            <div class="stat-pill">
+                <div class="stat-icon">⚡</div>
+                <div class="stat-info">
+                    <span class="stat-value">100%</span>
+                    <span class="stat-name">Automated CI/CD</span>
+                </div>
+            </div>
+            <div class="stat-divider"></div>
+            <div class="stat-pill">
+                <div class="stat-icon">🎨</div>
+                <div class="stat-info">
+                    <span class="stat-value" id="stat-themes">4</span>
+                    <span class="stat-name">Unique Themes</span>
+                </div>
+            </div>
         </div>
     </header>
 
-    <section class="stats-section">
-        <div class="container stats-container">
-            <div class="stat-card">
-                <h3 class="stat-number" id="stat-contributors">0</h3>
-                <p class="stat-label">Total Contributors</p>
+    <!-- Main Content Area -->
+    <main class="main-container">
+        <!-- Search and Filter Controls -->
+        <div class="controls-card">
+            <div class="search-box">
+                <svg class="search-icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                <input type="text" id="search-input" placeholder="Search contributor by name or @username..." autocomplete="off">
+                <button id="clear-search" class="clear-btn hidden" title="Clear search">&times;</button>
             </div>
-            <div class="stat-card">
-                <h3 class="stat-number" id="stat-badges">0</h3>
-                <p class="stat-label">Badges Earned</p>
-            </div>
-            <div class="stat-card">
-                <h3 class="stat-number" id="stat-themes">4</h3>
-                <p class="stat-label">Themes Used</p>
+
+            <div class="theme-pills-wrapper">
+                <span class="filter-label">Filter:</span>
+                <div class="theme-pills">
+                    <button class="filter-btn active" data-theme="all">
+                        <span>🌟 All</span>
+                        <span class="filter-count" id="count-all">0</span>
+                    </button>
+                    <button class="filter-btn" data-theme="cream">
+                        <span>🍦 Cream</span>
+                        <span class="filter-count" id="count-cream">0</span>
+                    </button>
+                    <button class="filter-btn" data-theme="hacker">
+                        <span>💻 Hacker</span>
+                        <span class="filter-count" id="count-hacker">0</span>
+                    </button>
+                    <button class="filter-btn" data-theme="corporate">
+                        <span>🏢 Corporate</span>
+                        <span class="filter-count" id="count-corporate">0</span>
+                    </button>
+                    <button class="filter-btn" data-theme="retro">
+                        <span>🕹️ Retro</span>
+                        <span class="filter-count" id="count-retro">0</span>
+                    </button>
+                </div>
             </div>
         </div>
-    </section>
 
-    <main class="main-content container">
-        <div class="controls">
-            <div class="search-bar">
-                <input type="text" id="search-input" placeholder="Search by name or username...">
-            </div>
-            <div class="theme-filters">
-                <button class="filter-btn active" data-theme="all">All</button>
-                <button class="filter-btn" data-theme="cream">Cream</button>
-                <button class="filter-btn" data-theme="hacker">Hacker</button>
-                <button class="filter-btn" data-theme="corporate">Corporate</button>
-                <button class="filter-btn" data-theme="retro">Retro</button>
-            </div>
-        </div>
-
-        <div class="grid" id="contributors-grid">
-            <!-- Cards will be dynamically inserted here -->
+        <!-- Dynamic Contributor Cards Grid -->
+        <div class="contributors-grid" id="contributors-grid">
+            <!-- Populated dynamically by script.js -->
         </div>
     </main>
 
-    <footer class="footer">
-        <div class="container">
-            <p>Built for the <a href="https://owasp.org" target="_blank">OWASP</a> Commit & Secure Workshop</p>
+    <!-- Badge Preview Modal -->
+    <div id="badge-modal" class="modal-backdrop hidden">
+        <div class="modal-card">
+            <div class="modal-header">
+                <div class="modal-title-group">
+                    <span class="modal-icon">🎖️</span>
+                    <h3 id="modal-contributor-name">Contributor Badge</h3>
+                </div>
+                <button id="modal-close-btn" class="modal-close" title="Close modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="modal-badge-preview" id="modal-badge-container">
+                    <img id="modal-badge-img" src="" alt="Badge Preview" />
+                </div>
+                
+                <div class="modal-copy-section">
+                    <label class="copy-label">Embed this badge in your GitHub README:</label>
+                    <div class="copy-box">
+                        <input type="text" id="modal-embed-code" readonly>
+                        <button id="modal-copy-btn" class="copy-btn">
+                            <span id="copy-btn-text">📋 Copy Markdown</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="hall-footer">
+        <div class="footer-wrapper">
+            <div class="footer-brand">
+                <span class="shield-emblem">🛡️</span>
+                <span>OWASP JIS University Student Chapter &bull; Commit & Secure Workshop 2026</span>
+            </div>
+            <p class="footer-tagline">Open source contributions are the cornerstone of modern security.</p>
         </div>
     </footer>
 
