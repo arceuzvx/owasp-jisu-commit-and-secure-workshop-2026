@@ -1,4 +1,6 @@
-# 🛡️ Commit & Secure: OWASP Beginner Git Workshop
+# 🛡️ Commit & Secure: OWASP Beginner Git & GitHub Workshop
+
+<img width="1000" height="200" alt="c s" src="https://github.com/user-attachments/assets/d9777c80-7f96-4cf6-9c93-cbb0896f532a" />
 
 ![License](https://img.shields.io/badge/License-MIT-blue.svg)
 ![OWASP](https://img.shields.io/badge/OWASP-Chapter_Project-brightgreen)
