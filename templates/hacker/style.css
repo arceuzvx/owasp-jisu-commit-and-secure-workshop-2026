@@ -86,6 +86,13 @@ body {
     color: var(--accent);
 }
 
+/* Inline highlight for bio text */
+.highlight-inline {
+    color: var(--accent);
+    font-weight: 600;
+    text-shadow: 0 0 6px var(--accent);
+}
+
 .subtitle {
     font-size: 1.1rem;
     color: var(--text-dim);
