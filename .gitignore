@@ -9,6 +9,8 @@
 # 🔐 Secrets & Credentials (NEVER commit these!)
 # ------------------------------------------
 .env
+.env.*
+*.env
 .env.local
 .env.production
 .env.*.local
@@ -17,6 +19,9 @@
 *.p12
 *.pfx
 *.crt
+ssl/
+config/*.env
+config/**/*.env
 secrets/
 credentials/
 

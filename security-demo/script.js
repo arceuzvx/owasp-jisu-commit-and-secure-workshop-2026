@@ -43,7 +43,7 @@ app.listen(3000, () => {
     host: 'db.example.com',
     port: 5432,
     user: 'admin',
-    password: '<secret>SuperSecret_DB_Pass!2024</secret>',
+    password: '<secret>example-db-password</secret>',
     name: 'production_db'
   }
 };`,
@@ -62,7 +62,7 @@ app.listen(3000, () => {
     icon: '🔗',
     hasSecret: true,
     secretType: 'API KEY',
-    insecure: `const API_KEY = '<secret>sk_live_a1b2c3d4e5f6g7h8i9j0</secret>';
+    insecure: `const API_KEY = '<secret>example_stripe_key_live</secret>';
 
 async function fetchPaymentData(userId) {
   const response = await fetch(
@@ -102,7 +102,7 @@ module.exports = { fetchPaymentData };`
     hasSecret: true,
     secretType: 'JWT SECRET',
     insecure: `const jwt = require('jsonwebtoken');
-const JWT_SECRET = '<secret>my-ultra-secret-jwt-key-never-share</secret>';
+const JWT_SECRET = '<secret>example-jwt-secret</secret>';
 
 function generateToken(user) {
   return jwt.sign(
@@ -144,9 +144,9 @@ module.exports = { generateToken, verifyToken };`
     insecure: `DB_HOST=db.example.com
 DB_PORT=5432
 DB_USER=admin
-DB_PASSWORD=SuperSecret_DB_Pass!2024
-STRIPE_API_KEY=sk_live_a1b2c3d4e5f6g7h8i9j0
-JWT_SECRET=my-ultra-secret-jwt-key-never-share`,
+DB_PASSWORD=example-db-password
+STRIPE_API_KEY=example_stripe_key_live
+JWT_SECRET=example-jwt-secret`,
     secure: null // shown with overlay in secure mode
   },
   {
@@ -180,7 +180,7 @@ const MISCONFIGS = [
     at UserController.getProfile (<span style="color:#eab308">/var/www/app/controllers/user.js:47:22</span>)
     at Layer.handle [as handle_request] (node_modules/express/lib/router/layer.js:95:5)
 
-<span style="color:#9ca3af">Database connection:</span> <span style="color:#ef4444">postgres://admin:SuperSecret_DB_Pass!2024@db.example.com:5432/production_db</span>
+<span style="color:#9ca3af">Database connection:</span> <span style="color:#ef4444">postgres://admin:example-db-password@db.example.com:5432/production_db</span>
 <span style="color:#9ca3af">Server internal IP:</span> <span style="color:#ef4444">10.0.3.47</span>
 <span style="color:#9ca3af">Node version:</span> v18.17.0
 <span style="color:#9ca3af">Express version:</span> 4.18.2`,
@@ -192,10 +192,10 @@ const MISCONFIGS = [
     title: '.env File is Committed to Git',
     points: 20,
     impact: `<span style="color:#9ca3af"># .env (visible in repository)</span>
-<span style="color:#ef4444">DB_PASSWORD=SuperSecret_DB_Pass!2024</span>
-<span style="color:#ef4444">STRIPE_API_KEY=sk_live_a1b2c3d4e5f6g7h8i9j0</span>
-<span style="color:#ef4444">JWT_SECRET=my-ultra-secret-jwt-key-never-share</span>
-<span style="color:#ef4444">ADMIN_PASSWORD=admin123</span>
+<span style="color:#ef4444">DB_PASSWORD=example-db-password</span>
+<span style="color:#ef4444">STRIPE_API_KEY=example_stripe_key_live</span>
+<span style="color:#ef4444">JWT_SECRET=example-jwt-secret</span>
+<span style="color:#ef4444">ADMIN_PASSWORD=change_me_to_strong_password</span>
 
 <span style="color:#9ca3af">Anyone with repo access can read these credentials.</span>`,
     fix: 'Add .env to .gitignore, then run: git rm --cached .env'
@@ -223,7 +223,7 @@ const MISCONFIGS = [
 <span style="color:#9ca3af">Request body:</span>
 {
   "username": <span style="color:#ef4444">"admin"</span>,
-  "password": <span style="color:#ef4444">"admin123"</span>
+  "password": <span style="color:#ef4444">"change_me_to_strong_password"</span>
 }
 
 <span style="color:#22c55e">✓ 200 OK — Login successful</span>
@@ -256,8 +256,8 @@ const MISCONFIGS = [
 
 GET /api/data HTTP/1.1
 Host: api.example.com
-<span style="color:#ef4444">Authorization: Bearer sk_live_a1b2c3d4e5f6g7h8i9j0</span>
-<span style="color:#ef4444">X-API-Secret: my-ultra-secret-jwt-key-never-share</span>
+<span style="color:#ef4444">Authorization: Bearer example_stripe_key_live</span>
+<span style="color:#ef4444">X-API-Secret: example-jwt-secret</span>
 
 <span style="color:#9ca3af">// Anyone can open DevTools (F12) and copy these keys.</span>
 <span style="color:#9ca3af">// View Source also reveals them in bundled JavaScript.</span>`,
